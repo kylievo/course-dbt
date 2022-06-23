@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: "users info + adresses"
+    columns:
+      - name: uid
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_orders
+    description: "orders info + promos + addresses"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+    tests:
+      - unique:
+          column_name: "uid || '-' || order_id"
+
+  - name: fact_products
+    description: "products_info + number of orders + quatities ordered"
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_user_order_summary
+    description: "users' number of orders and summary order details + repeated user indicator"
+    columns:
+      - name: uid
+        tests:
+          - unique
+          - not_null  
+      - name: repeated_customer_ind
+        tests:
+          - not_null
+          - accepted_values:      
+              values: [0,1]
+
+  - name: int_event_summary
+    description: "users' events by session + number of events for each event category"
+    columns:
+      - name: session_id
+        tests:
+          #- unique
+          - not_null  
+      - name: num_orders
+        tests:
+          - not_null
+          - accepted_values:      
+              values: [0,1]
+    # tests:
+      #- unique:
+          #column_name: "uid || '-' || session_id" 
+
+  - name: fact_user_page_views_to_orders
+    description: "users' number of sessions, page views, and orders + sessions to orders ratio"
+    columns:
+      - name: uid
+        tests:
+          - unique
+          - not_null  
