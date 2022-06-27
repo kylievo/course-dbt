@@ -13,7 +13,7 @@ FROM dbt_kylie_v.int_event_summary
 
 2. **What is our conversion rate by product?**
 
-![Alt text](/image/week3_q2.png)
+![Alt text](/greenery/image/week3_q2.png)
 
 ```
 SELECT
@@ -100,6 +100,6 @@ Applied `dbt_utils` on `models/marts/Product/int_event_summary.sql`
 #### PART 5
 **Updated model DAGs**
 
-![Alt text](/image/dbt-dag-graph.png)
+![Alt text](/greenery/image/dbt-dag-graph.png)
 
 
