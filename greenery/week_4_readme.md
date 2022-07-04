@@ -54,5 +54,5 @@ FROM dbt_kylie_v.fact_funnel_events
 
 #### Part 3: Reflection questions
 
-3A. We're been using dbt at our company. I would recommend to my team to review model layers and re-organize everything as needed. We built large/complex models already but naming convention and model structure are not very clean. We don't have very good tests either that we need to add/improve.
+3A. We've been using dbt at our company. I would recommend to my team to review model layers and re-organize everything as needed. We built large/complex models already but the naming convention and model structures are not very clean. We don't have very good tests either that we need to add/improve.
 
