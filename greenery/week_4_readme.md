@@ -1,4 +1,4 @@
-## Week 3 Project
+## Week 4 Project
 
 #### Part 1: dbt Snapshots
 
@@ -34,4 +34,25 @@ WHERE order_id in ('914b8929-e04a-40f8-86ee-357f2be3a2a2', '05202733-0e17-4726-9
 
 
 #### Part 2: Modeling challenge
+
+```
+SELECT 
+  round(sum(has_add_to_cart)::numeric/count(distinct session_id),2) as add_to_cart_conv,
+  round(sum(has_check_out)::numeric/count(distinct session_id), 2) as check_out_conv,
+  round(sum(has_add_to_cart)::numeric/sum(has_page_view), 2) as page_view_to_add_to_card,
+  round(sum(has_check_out)::numeric/sum(has_add_to_cart), 2) as add_to_card_to_check_out
+  
+FROM dbt_kylie_v.fact_funnel_events
+```
+`add_to_cart_conv = 0.81`
+
+`check_out_conv = 0.62`
+
+`page_view_to_add_to_card = 0.81`
+
+`add_to_card_to_check_out = 0.77`
+
+#### Part 3: Reflection questions
+
+3A. We're been using dbt at our company. I would recommend to my team to review model layers and re-organize everything as needed. We built large/complex models already but naming convention and model structure are not very clean. We don't have very good tests either that we need to add/improve.
 
