@@ -1,0 +1,13 @@
+version: 2
+
+exposures:  
+  - name: Product Funnel Dashboard
+    description: >
+      Models that are critical to our product funnel dashboard
+    type: dashboard
+    maturity: low
+    owner:
+      name: Kylie Vo
+      email: kvo@greenery.com
+    depends_on:
+      - ref('fact_funnel_events')
